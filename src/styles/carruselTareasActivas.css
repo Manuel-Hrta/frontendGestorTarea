@@ -1,0 +1,80 @@
+.carousel-contenedor {
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Limita el área visible del carrusel */
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    height: 900px;
+  }
+  
+  .carousel-slide {
+    width: 100%;
+    overflow: hidden; /* Asegura que las tarjetas no se salgan del contenedor */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas por fila */
+    grid-template-rows: repeat(2, auto); /* 2 filas */
+    gap: 16px; /* Espaciado entre tarjetas */
+    transition: transform 0.5s ease-in-out; /* Transición suave */
+  }
+  
+  .card-wrapper {
+    width: 100%;
+    height: auto;
+  }
+  
+  .buttonCarruselLeft,
+  .buttonCarruselRight {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #333;
+    transition: transform 0.2s ease, color 0.3s ease; /* Transición para hover y clic */
+  }
+  
+  .buttonCarruselLeft:hover,
+  .buttonCarruselRight:hover {
+    color: #007bff; /* Cambia el color en hover */
+    transform: translateY(-50%) scale(1.1); /* Aumenta el tamaño en hover */
+  }
+  
+  .buttonCarruselLeft:active,
+  .buttonCarruselRight:active {
+    transform: translateY(-50%) scale(0.9); /* Efecto de clic */
+  }
+  
+  .buttonCarruselLeft {
+    left: 0;
+  }
+  
+  .buttonCarruselRight {
+    right: 0;
+  }
+  
+  /* Pantallas medianas: 2 filas x 2 columnas */
+  @media (max-width: 1200px) {
+    .grid-wrapper {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+      grid-template-rows: repeat(2, auto); /* 2 filas */
+    }
+  }
+  
+  /* Pantallas pequeñas: 2 filas x 1 columna */
+  @media (max-width: 900px) {
+    .grid-wrapper {
+      grid-template-columns: repeat(1, 1fr); /* 1 columna */
+      grid-template-rows: repeat(2, auto); /* 2 filas */
+    }
+  }
+  
